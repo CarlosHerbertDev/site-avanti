@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu AVANTI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Promo bar */
+    .promo-bar {
+      background-color: #0056ff;
+      color: white;
+      font-size: 13px;
+      text-align: center;
+      padding: 6px;
+    }
+
+    .promo-bar span {
+      color: #e8a7ff;
+      font-weight: bold;
+    }
+
+    /* Header principal */
+    .header-top {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 32px;
+      background: #fff;
+      max-width: 1288px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .search-container {
+      max-width: 600px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin: 0 32px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-container input {
+      width: 90%;
+      margin: 12px;
+      padding-inline: 20px 50px;
+      font-size: 14px;
+      border: none;
+    }
+
+    .search-container input:focus {
+      outline: none;
+    }
+
+    .search-container::after {
+      content: "🔍";
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #888;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .icons span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icons .cart {
+      position: relative;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .icons .cart::after {
+      content: "2";
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: #0056ff;
+      color: white;
+      font-size: 11px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 18px;
+      font-weight: bold;
+    }
+
+    /* Menu inferior */
+    .nav-menu {
+        margin: 0 auto;
+    max-width: 1288px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 47.5px;
+      padding: 10px 20px;
+      background: white;
+      font-size: 14px;
+    }
+
+    .nav-menu .menu-item {
+      cursor: pointer;
+      color: #333;
+      transition: color 0.2s ease;
+    }
+
+    .nav-menu .menu-item:hover {
+      color: #0056ff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra promocional -->
+  <div class="promo-bar">
+    Ganhe <span>R$10,00</span> de desconto no seu primeiro pedido. Utilize o cupom <strong>DESCONTO10</strong>
+  </div>
+
+  <!-- Cabeçalho principal -->
+  <div class="header-top">
+    <div class="logo-container">
+        <div class="logo">AVANTI</div>
+    
+        <div class="search-container">
+          <input type="text" placeholder="Digite aqui o que você procura">
+        </div>
+
+    </div>
+
+    <div class="icons">
+      <span>👤 Olá, Nome cliente!</span>
+      <span class="cart">🛒</span>
+    </div>
+  </div>
+
+  <!-- Menu de navegação -->
+  <div class="nav-menu">
+    <div class="menu-item">☰ Todas as Categorias</div>
+    <div class="menu-item">Departamento</div>
+    <div class="menu-item">Departamento</div>
+    <div class="menu-item">Departamento</div>
+    <div class="menu-item">Departamento</div>
+    <div class="menu-item">Departamento</div>
+    <div class="menu-item">Departamento</div>
+    <div class="menu-item">Departamento</div>
+    <div class="menu-item">Departamento</div>
+  </div>
+
+</body>
+</html>
