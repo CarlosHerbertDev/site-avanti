@@ -1,380 +1,169 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Header Avanti</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/css/global.css">
+  <link rel="stylesheet" href="./src/css/sections/header.css">
+  <script src="https://kit.fontawesome.com/01f6fb4d6b.js" crossorigin="anonymous"></script>
+  <title>Avanti Site</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-    }
-
-    .promo-bar {
-      background-color: #0056ff;
-      color: white;
-      text-align: center;
-      padding: 8px;
-      font-size: 14px;
-    }
-
-    .promo-bar span {
-      color: #ffb6ff;
-      font-weight: bold;
-    }
-
-    .promo-bar strong {
-      font-weight: bold;
-    }
-
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .search-bar {
-      flex: 1;
-      max-width: 600px;
-      margin: 0 2rem;
-      position: relative;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 10px 40px 10px 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
-    .search-bar .icon {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 18px;
-      color: #888;
-      cursor: pointer;
-    }
-
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .actions .user {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: #0056ff;
-      font-size: 14px;
-    }
-
-    .actions .cart {
-      position: relative;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .cart-badge {
-      position: absolute;
-      top: -6px;
-      right: -10px;
-      background: #0056ff;
-      color: white;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 50%;
-    }
-
-    .nav {
-      display: flex;
-      padding: 1rem 2rem;
-      gap: 2rem;
-      background: white;
-      border-top: 1px solid #eee;
-      justify-content: center;
-      
-    }
-
-    .nav-item {
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      color: #222;
-    }
-
-    .nav-item:hover {
-      color: #0056ff;
-    }
-
-    .nav-item.icon {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: bold;
-    }
-
-    /* Mega menu atualizado */
     .mega-menu {
-      position: absolute;
-      justify-content: center;
-      top: 150px;
-      left: 0;
-      right: 0;
-      background-color: #fff;
-      display: flex;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      z-index: 10;
-    }
-
-    .mega-menu.hidden {
       display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      display: flex;
+      padding: 20px;
     }
 
-    .mega-departments {
-      width: 200px;
-      border-right: 1px solid #eee;
-      padding-right: 1rem;
+    .menu-categorias, .menu-subcategorias {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-height: 300px;
+      overflow-y: auto;
     }
 
-    .mega-departments ul {
-      list-style: none;
-    }
-
-    .mega-departments li {
-      padding: 10px;
+    .menu-categorias .menu-item,
+    .menu-subcategorias span {
+      padding: 8px;
       cursor: pointer;
-      font-size: 14px;
-      color: #333;
     }
 
-    .mega-departments li.active,
-    .mega-departments li:hover {
-      color: #0056ff;
+    .menu-categorias .menu-item:hover,
+    .menu-subcategorias span:hover {
+      background-color: #f5f5f5;
+    }
+
+    .menu-subcategorias {
+      flex: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding-left: 20px;
+    }
+
+    .menu-banner {
+      flex: 1;
+      background-image: url('./src/assets/banner-menu.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-size: 18px;
       font-weight: bold;
-    }
-
-    .mega-categories {
-        display: flex;
-        gap: 30px;
-    }
-
-    .mega-categories-baner {
-        display: flex;
-        justify-content: space-between;
-
-    }
-
-    .mega-categories-column {
-      flex: 1;
-    }
-
-    .mega-categories-column h4 {
-      font-size: 14px;
-      color: #0056ff;
-      margin-bottom: 8px;
-    }
-
-    .mega-categories-column ul {
-      list-style: none;
-    }
-
-    .mega-categories-column ul li {
-      font-size: 14px;
-      padding: 4px 0;
-      color: #666;
-    }
-
-    .mega-banner {
-      flex: 1;
-      max-width: 300px;
-      text-align: center;
+      line-height: 1.4;
+      border-radius: 8px;
       position: relative;
     }
 
-    .mega-banner img {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .banner-text {
-      position: absolute;
-      top: 30%;
-      left: 10%;
-      color: white;
-      text-align: left;
-    }
-
-    .banner-text h3 {
-      font-size: 18px;
-      font-weight: bold;
-      line-height: 1.2;
-    }
-
-    .banner-text button {
+    .menu-banner button {
       margin-top: 10px;
-      background: transparent;
-      border: 1px solid #fff;
-      padding: 6px 12px;
-      color: #fff;
-      border-radius: 6px;
+      padding: 10px;
+      background-color: rgba(255,255,255,0.9);
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
+    }
+
+    .nav-wrapper {
+      position: relative;
     }
   </style>
 </head>
 <body>
-
-  <!-- Faixa Promocional -->
-  <div class="promo-bar">
-    Ganhe <span>R$10,00</span> de desconto no seu primeiro pedido. Utilize o cupom <strong>DESCONTO10</strong>
-  </div>
-
-  <!-- Header principal -->
-  <div class="header">
-    <div class="logo">AVANTI</div>
-
-    <div class="search-bar">
-      <input type="text" placeholder="Digite aqui o que você procura" />
-      <span class="icon">🔍</span>
+  <header class="header">
+    <div class="promo-bar">
+      Ganhe <span>R$10,00</span> de desconto no seu primeiro pedido. Utilize o cupom <strong>DESCONTO10</strong>
     </div>
-
-    <div class="actions">
-      <div class="user">
-        👤 <span>Olá,<br/>Nome cliente!</span>
-      </div>
-      <div class="cart">
-        🛒
-        <div class="cart-badge">2</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Menu de navegação -->
-  <div class="nav">
-    <div class="nav-item icon" id="menu-toggle">☰ Todas as Categorias</div>
-    <div class="nav-item">Departamento</div>
-    <div class="nav-item">Departamento</div>
-    <div class="nav-item">Departamento</div>
-    <div class="nav-item">Departamento</div>
-    <div class="nav-item">Departamento</div>
-    <div class="nav-item">Departamento</div>
-    <div class="nav-item">Departamento</div>
-  </div>
-
-  <!-- Mega Menu Atualizado -->
-  <div id="mega-menu" class="mega-menu hidden">
-    <!-- Coluna de Departamentos -->
-    <div class="mega-departments">
-      <ul id="departments-list">
-        <li data-department="1" class="active">Departamento</li>
-        <li data-department="2">Departamento</li>
-        <li data-department="3">Departamento</li>
-        <li data-department="4">Departamento</li>
-        <li data-department="5">Departamento</li>
-        <li data-department="6">Departamento</li>
-        <li data-department="7">Departamento</li>
-        <li data-department="8">Departamento</li>
-      </ul>
-    </div>
-
-    <div class="mega-categories-baner">
-
-        <div class="mega-categories" id="category-columns">
-          <!-- Preenchido via JS -->
+    <div class="container-header">
+      <div class="header-top">
+        <div class="logo-container">
+          <div class="logo">
+            <img src="./src/assets/logo.png" alt="image-logo">
+          </div>
+          <div class="search-container">
+            <input type="text" placeholder="Digite aqui o que você procura">
+          </div>
         </div>
-    
-        <!-- Banner lateral -->
-        <div class="mega-banner">
-          <img src="https://via.placeholder.com/300x200" alt="Banner">
-          <div class="banner-text">
-            <h3>Confira os<br>Produtos<br>Que acabaram<br>De chegar</h3>
+        <div class="icons">
+          <span><img src="./src/assets/perfil.png" alt="perfil-image">Olá, Nome cliente!</span>
+          <span class="cart"><img src="./src/assets/carrinho.png" alt="cart-image"></span>
+        </div>
+      </div>
+
+      <div class="nav-wrapper">
+        <div class="nav-menu">
+          <div class="menu-item" id="btn-categorias"><strong>☰ Todas as Categorias</strong></div>
+          <div class="menu-item">Departamento</div>
+          <div class="menu-item">Departamento</div>
+          <div class="menu-item">Departamento</div>
+          <div class="menu-item">Departamento</div>
+          <div class="menu-item">Departamento</div>
+          <div class="menu-item">Departamento</div>
+          <div class="menu-item">Departamento</div>
+          <div class="menu-item">Departamento</div>
+        </div>
+
+        <!-- Mega Menu -->
+        <div class="mega-menu" id="megaMenu">
+          <div class="menu-categorias">
+            <div class="menu-item">Departamento</div>
+            <div class="menu-item">Departamento</div>
+            <div class="menu-item">Departamento</div>
+            <div class="menu-item">Departamento</div>
+            <div class="menu-item">Departamento</div>
+            <div class="menu-item">Departamento</div>
+            <div class="menu-item">Departamento</div>
+            <div class="menu-item">Departamento</div>
+          </div>
+          <div class="menu-subcategorias">
+            <span><strong>Categoria</strong></span>
+            <span>Categoria</span>
+            <span>Categoria</span>
+            <span>Categoria</span>
+            <span>Categoria</span>
+            <span>Categoria</span>
+            <span>Categoria</span>
+            <span>Categoria</span>
+            <span>Categoria</span>
+          </div>
+          <div class="menu-banner">
+            Confira os Produtos<br>Que acabaram<br>De chegar
             <button>VER TODOS</button>
           </div>
         </div>
+      </div>
+
     </div>
-    <!-- Categorias dinâmicas -->
-  </div>
-
-  <!-- Script -->
+  </header>
   <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const megaMenu = document.getElementById("mega-menu");
-    const departments = document.querySelectorAll("#departments-list li");
-    const categoryContainer = document.getElementById("category-columns");
+    const btnCategorias = document.getElementById('btn-categorias');
+    const megaMenu = document.getElementById('megaMenu');
 
-    const categoriesByDept = {
-      1: [["Café", "Chá", "Canecas"], ["Açúcar", "Biscoitos"], ["Açúcar", "Biscoitos"]],
-      2: [["TVs", "Soundbars"], ["Smartphones", "Tablets"]],
-      3: [["Tênis", "Roupas"], ["Bolsas", "Acessórios"]],
-      4: [["Livros", "HQs"], ["Revistas", "Ebooks"]],
-      5: [["Camas", "Sofás"], ["Mesas", "Decoração"]],
-      6: [["Ferramentas", "Elétrica"], ["Hidráulica", "Jardinagem"]],
-      7: [["Shampoo", "Sabonetes"], ["Maquiagem", "Perfumes"]],
-      8: [["Esporte", "Suplementos"], ["Fitness", "Acessórios"]],
-    };
-
-    function renderCategories(departmentId) {
-      const columns = categoriesByDept[departmentId] || [];
-      categoryContainer.innerHTML = columns.map(col => `
-        <div class="mega-categories-column">
-          <h4>Categoria</h4>
-          <ul>
-            ${col.map(item => `<li>${item}</li>`).join('')}
-          </ul>
-        </div>
-      `).join('');
-    }
-
-    // Hover para abrir o menu
-    menuToggle.addEventListener("mouseenter", () => {
-      megaMenu.classList.remove("hidden");
+    btnCategorias.addEventListener('mouseenter', () => {
+      megaMenu.style.display = 'flex';
     });
 
-    menuToggle.addEventListener("mouseleave", () => {
+    btnCategorias.addEventListener('mouseleave', () => {
       setTimeout(() => {
-        if (!megaMenu.matches(":hover")) {
-          megaMenu.classList.add("hidden");
+        if (!megaMenu.matches(':hover')) {
+          megaMenu.style.display = 'none';
         }
-      }, 200);
+      }, 300);
     });
 
-    megaMenu.addEventListener("mouseleave", () => {
-      megaMenu.classList.add("hidden");
+    megaMenu.addEventListener('mouseleave', () => {
+      megaMenu.style.display = 'none';
     });
-
-    megaMenu.addEventListener("mouseenter", () => {
-      megaMenu.classList.remove("hidden");
-    });
-
-    // Hover em cada departamento
-    departments.forEach(dept => {
-      dept.addEventListener("mouseenter", () => {
-        departments.forEach(d => d.classList.remove("active"));
-        dept.classList.add("active");
-        renderCategories(dept.dataset.department);
-      });
-    });
-
-    // Inicializar categorias com o primeiro departamento
-    renderCategories("1");
   </script>
 </body>
 </html>
