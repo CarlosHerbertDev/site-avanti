@@ -223,4 +223,20 @@
   .nav-menu .menu-item:hover {
     color: #0056ff;
   } 
+  
+  .mega-menu {
+    background-color: #0056ff;
+    display: flex;
+    justify-content: start;
+    
+    width: 100%;
+  }
 
+  .mega-menu-content {
+    background-color: #0056ff;
+    margin: 0;
+  }
+
+  .mega-menu .mega-menu-item {
+    
+  }

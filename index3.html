@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/global.css">
+    <link rel="stylesheet" href="./src/css/reusables.css">
     <link rel="stylesheet" href="./src/css/sections/header.css">
     <script src="https://kit.fontawesome.com/01f6fb4d6b.js" crossorigin="anonymous"></script>
     <title>Avanti Site</title>
@@ -34,7 +35,7 @@
             
               <!-- Menu de navegação -->
               <div class="nav-menu">
-                <div class="menu-item"><strong>☰ Todas as Categorias</strong></div>
+                <div class="menu-item todas-categorias" id="todas-categorias"><strong>☰ Todas as Categorias</strong></div>
                 <div class="menu-item">Departamento</div>
                 <div class="menu-item">Departamento</div>
                 <div class="menu-item">Departamento</div>
@@ -44,8 +45,15 @@
                 <div class="menu-item">Departamento</div>
                 <div class="menu-item">Departamento</div>
               </div>
+
+              <div class="mega-menu" id="mega-menu">
+                <div class="mega-menu-content">
+                  <ul class="slide-menu hidden"></ul>
+                </div>
+              </div>
             
         </div>
     </header>
+    <script src="./src/js/index.js"></script>
 </body>
 </html>

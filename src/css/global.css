@@ -1,8 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-body {
+
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+
+body {
     max-width: 1440px;
     height: 100vh;
     font-family: 'Nunito', sans-serif;
+  }
+
+
+li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }

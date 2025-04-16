@@ -1,181 +1,243 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menu AVANTI</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <title>Mega Menu Estilo E-commerce</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      padding: 0;
     }
 
-    /* Promo bar */
-    .promo-bar {
-      background-color: #0056ff;
-      color: white;
-      font-size: 13px;
-      text-align: center;
-      padding: 6px;
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
     }
 
-    .promo-bar span {
-      color: #e8a7ff;
+    nav {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .top-menu {
+      display: flex;
+      align-items: center;
+      padding: 16px 24px;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .top-menu li {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .top-menu li.active {
+      color: #2563eb;
       font-weight: bold;
     }
 
-    /* Header principal */
-    .header-top {
+    .mega-menu-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
       width: 100%;
-      margin: 0 auto;
+      background: white;
+      display: flex;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      z-index: 99;
+    }
+
+    .side-menu {
+      width: 200px;
+      border-right: 1px solid #e5e5e5;
+      padding-right: 16px;
+    }
+
+    .side-menu li {
+      list-style: none;
+      padding: 10px 8px;
+      cursor: pointer;
+      font-size: 14px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 32px;
-      background: #fff;
-      max-width: 1288px;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
+    .side-menu li:hover {
+      background: #f3f4f6;
     }
 
-    .logo-container {
+    .categories {
       display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .search-container {
-      max-width: 600px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      margin: 0 32px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 0 24px;
+      flex: 1;
     }
 
-    .search-container input {
-      width: 90%;
-      margin: 12px;
-      padding-inline: 20px 50px;
+    .category-column {
+      min-width: 160px;
+    }
+
+    .category-column h4 {
       font-size: 14px;
-      border: none;
+      color: #2563eb;
+      margin-bottom: 8px;
     }
 
-    .search-container input:focus {
-      outline: none;
+    .category-column ul {
+      list-style: none;
     }
 
-    .search-container::after {
-      content: "🔍";
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 16px;
-      color: #888;
-    }
-
-    .icons {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-size: 14px;
-      color: #333;
-    }
-
-    .icons span {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .icons .cart {
-      position: relative;
-      font-size: 20px;
+    .category-column ul li {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #444;
       cursor: pointer;
     }
 
-    .icons .cart::after {
-      content: "2";
+    .banner {
+      width: 220px;
+      position: relative;
+    }
+
+    .banner img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .banner-text {
       position: absolute;
-      top: -8px;
-      right: -10px;
-      background: #0056ff;
+      bottom: 20px;
+      left: 12px;
       color: white;
-      font-size: 11px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 18px;
       font-weight: bold;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
     }
 
-    /* Menu inferior */
-    .nav-menu {
-        margin: 0 auto;
-    max-width: 1288px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 47.5px;
-      padding: 10px 20px;
-      background: white;
-      font-size: 14px;
-    }
-
-    .nav-menu .menu-item {
+    .banner-text button {
+      margin-top: 10px;
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 4px;
       cursor: pointer;
-      color: #333;
-      transition: color 0.2s ease;
     }
 
-    .nav-menu .menu-item:hover {
-      color: #0056ff;
+    /* Responsividade (básica) */
+    @media (max-width: 768px) {
+      .mega-menu-content {
+        flex-direction: column;
+      }
+
+      .banner {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <ul class="top-menu">
+      <li id="toggleMenu" class="active">☰ Todas as Categorias</li>
+      <li>Departamento</li>
+      <li>Departamento</li>
+      <li>Departamento</li>
+      <li>Departamento</li>
+      <li>Departamento</li>
+      <li>Departamento</li>
+    </ul>
 
-  <!-- Barra promocional -->
-  <div class="promo-bar">
-    Ganhe <span>R$10,00</span> de desconto no seu primeiro pedido. Utilize o cupom <strong>DESCONTO10</strong>
-  </div>
+    <div class="mega-menu-content" id="megaMenu">
+      <ul class="side-menu">
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+        <li class="item-mega-menu">Departamento <span>›</span></li>
+      </ul>
 
-  <!-- Cabeçalho principal -->
-  <div class="header-top">
-    <div class="logo-container">
-        <div class="logo">AVANTI</div>
-    
-        <div class="search-container">
-          <input type="text" placeholder="Digite aqui o que você procura">
+      <div class="categories">
+        <div class="category-column">
+          <h4>Categoria</h4>
+          <ul>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+          </ul>
         </div>
+        <div class="category-column">
+          <h4>Categoria</h4>
+          <ul>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+          </ul>
+        </div>
+        <div class="category-column">
+          <h4>Categoria</h4>
+          <ul>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+            <li>Categoria</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="banner">
+        <img src="https://images.unsplash.com/photo-1601041991121-16e02c7b43f6?fit=crop&w=400&q=80" alt="Banner">
+        <div class="banner-text">
+          <p>Confira os<br>Produtos<br>Que acabaram<br>De chegar</p>
+          <button>Ver todos</button>
+        </div>
+      </div>
     </div>
+  </nav>
 
-    <div class="icons">
-      <span>👤 Olá, Nome cliente!</span>
-      <span class="cart">🛒</span>
-    </div>
-  </div>
+  <script>
+    const toggle = document.getElementById('toggleMenu');
+    const menu = document.getElementById('megaMenu');
 
-  <!-- Menu de navegação -->
-  <div class="nav-menu">
-    <div class="menu-item">☰ Todas as Categorias</div>
-    <div class="menu-item">Departamento</div>
-    <div class="menu-item">Departamento</div>
-    <div class="menu-item">Departamento</div>
-    <div class="menu-item">Departamento</div>
-    <div class="menu-item">Departamento</div>
-    <div class="menu-item">Departamento</div>
-    <div class="menu-item">Departamento</div>
-    <div class="menu-item">Departamento</div>
-  </div>
+    toggle.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
 
+    // Fecha menu ao clicar fora (opcional)
+    document.addEventListener('click', function (e) {
+      if (!document.querySelector('nav').contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
