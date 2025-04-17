@@ -117,29 +117,33 @@ function esconderMenu() {
 
 // Eventos
 
-const containerCategories = document.querySelectorAll(".container-categories");
+// const containerCategories = document.querySelectorAll(".container-categories");
 
 
-todasCategorias.addEventListener("mouseenter", mostrarMenu);
-todasCategorias.addEventListener("mouseleave", (event) => {
-  const related = event.relatedTarget;
+// todasCategorias.addEventListener("mouseenter", mostrarMenu);
+// todasCategorias.addEventListener("mouseleave", (event) => {
+//   const related = event.relatedTarget;
 
-  // Se o mouse ainda estiver dentro do mega menu (ex: indo pra .categories), não esconde
-  if (!megaMenu.contains(related)) {
-    esconderMenu();
-  }
-});
+//   // Se o mouse ainda estiver dentro do mega menu (ex: indo pra .categories), não esconde
+//   if (!megaMenu.contains(related)) {
+//     esconderMenu();
+//   }
+// });
 
-megaMenu.addEventListener("mouseenter", () => clearTimeout(hideTimeout));
-megaMenu.addEventListener("mouseleave", (event) => {
-  const related = event.relatedTarget;
+// megaMenu.addEventListener("mouseenter", () => clearTimeout(hideTimeout));
+// megaMenu.addEventListener("mouseleave", (event) => {
+//   const related = event.relatedTarget;
 
-  // Se o mouse ainda estiver dentro do mega menu (inclusive categorias), não esconde
-  if (!megaMenu.contains(related) && related !== todasCategorias) {
-    esconderMenu();
-  }
-});
+//   // Se o mouse ainda estiver dentro do mega menu (inclusive categorias), não esconde
+//   if (!megaMenu.contains(related) && related !== todasCategorias) {
+//     esconderMenu();
+//   }
+// });
 
+const wrapper = document.querySelector(".mega-menu-wrapper");
+
+wrapper.addEventListener("mouseenter", mostrarMenu);
+wrapper.addEventListener("mouseleave", esconderMenu);
 
 // categories.forEach((category) => {
 //   category.addEventListener("mouseenter", () => {
