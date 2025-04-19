@@ -4,6 +4,8 @@ const megaMenuContent = document.querySelector(".mega-menu-content");
 const todasCategorias = document.querySelector("#todas-categorias");
 const categories = document.querySelectorAll(".categories");
 const menuItem = document.querySelectorAll(".menu-item");
+const menuCategories = document.querySelector("#menu-categories");
+const headerCategories = document.querySelectorAll(".header-categories");
 const departamentos = [
   "Departamento", "Departamento", "Departamento", "Departamento",
   "Departamento", "Departamento", "Departamento", "Departamento",
@@ -95,8 +97,12 @@ function esconderMenu() {
       item.classList.remove("active");
       const arrow = item.querySelector("img");
       if (arrow) arrow.src = "./src/assets/arrow.png";
-      categories.forEach((c) => c.innerHTML = "");
+      categories.forEach((c) => {
+        c.innerHTML = ""
+        c.classList.remove("active");
+      })
     });
+
   }, 200);
 }
 
@@ -123,36 +129,202 @@ megaMenu.addEventListener("mouseleave", (event) => {
 });
 
 
-
 menuItem.forEach((item) => { 
-  
   if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
-  const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
+  const category = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
   
   item.addEventListener("mouseenter", () => {
-    megaMenu.classList.remove("hidden");
-    console.log(headerCategories);
-    
 
-    headerCategories.innerHTML +=`
+    menuItem.forEach((i) => i.classList.remove("active"));
+    item.classList.add("active");
+    headerCategories.forEach((c) => c.classList.remove("active"));
+    category.classList.add("active");
+            
+    menuCategories.classList.remove("hidden");
+
+
+    category.innerHTML +=`
       <h4>Departamento</h4>
       <ul>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
       </ul>
-    
-    `
-  });
+      
+      `
 
-  item.addEventListener("mouseleave", () => {
-    megaMenu.classList.add("hidden");
-    headerCategories.innerHTML = "";
-  });
+      });
+      
+      
+      
+      item.addEventListener("mouseleave", () => {
+      
+        hideTimeout = setTimeout(() => {
+        menuCategories.classList.add("hidden");
+        headerCategories.innerHTML = "";
+        item.classList.remove("active");
+        }
+        , 200)
+      });
 
 })
+
+function teste() {
+// menuCategories.classList.remove("hidden")
+clearTimeout(hideTimeout)
+}
+
+menuCategories.addEventListener("mouseenter", () => {
+  teste()
+})
+
+
+menuCategories.addEventListener("mouseleave", () => {
+  // hideTimeout = setTimeout(() => {
+  //   headerCategories.forEach((item) => {
+  //     item.innerHTML = ""
+  //   })
+  //   menuCategories.classList.add("hidden")
+  //   menuItem.forEach((item) => {
+  //     item.classList.remove("active")
+  //   })
+  // }, 200)
+
+  menuItem.forEach((item) => {
+    hideTimeout = setTimeout(() => {
+
+    item.classList.remove("active")
+    if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
+    const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
+    headerCategories.innerHTML = ""
+    menuCategories.classList.add("hidden")
+  }, 200)
+})
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// menuItem.forEach((item) => { 
+//     if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
+//     const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
+    
+//     item.addEventListener("mouseenter", () => {
+
+//       item.classList.add("active");
+
+//         menuCategories.classList.remove("hidden");
+              
+
+//       headerCategories.innerHTML +=`
+//         <h4>Departamento</h4>
+//         <ul>
+//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+//         </ul>
+        
+//         `
+
+//         });
+        
+        
+        
+//         item.addEventListener("mouseleave", () => {
+        
+//           hideTimeout = setTimeout(() => {
+//           menuCategories.classList.add("hidden");
+//           headerCategories.innerHTML = "";
+//           item.classList.remove("active");
+//           }
+//           , 200)
+//         });
+
+//   })
+
+// function teste() {
+//   // menuCategories.classList.remove("hidden")
+//   clearTimeout(hideTimeout)
+// }
+
+//   menuCategories.addEventListener("mouseenter", () => {
+//     teste()
+//   })
+
+
+//   menuCategories.addEventListener("mouseleave", () => {
+//     // hideTimeout = setTimeout(() => {
+//     //   headerCategories.forEach((item) => {
+//     //     item.innerHTML = ""
+//     //   })
+//     //   menuCategories.classList.add("hidden")
+//     //   menuItem.forEach((item) => {
+//     //     item.classList.remove("active")
+//     //   })
+//     // }, 200)
+
+//     menuItem.forEach((item) => {
+//       hideTimeout = setTimeout(() => {
+
+//       item.classList.remove("active")
+//       if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
+//       const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
+//       headerCategories.innerHTML = ""
+//       menuCategories.classList.add("hidden")
+//     }, 200)
+//   })
+//   });
