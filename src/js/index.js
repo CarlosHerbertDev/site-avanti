@@ -89,6 +89,7 @@ function esconderMenu() {
     ulMegaMenu.classList.add("hidden");
     megaMenuContent.classList.add("hidden");
     
+    
     todasCategorias.classList.remove("active");
     document.querySelectorAll(".mega-menu-item").forEach((item) => {
       item.classList.remove("active");
@@ -129,7 +130,7 @@ menuItem.forEach((item) => {
   const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
   
   item.addEventListener("mouseenter", () => {
-
+    megaMenu.classList.remove("hidden");
     console.log(headerCategories);
     
 
@@ -150,6 +151,7 @@ menuItem.forEach((item) => {
   });
 
   item.addEventListener("mouseleave", () => {
+    megaMenu.classList.add("hidden");
     headerCategories.innerHTML = "";
   });
 
