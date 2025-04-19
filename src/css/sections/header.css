@@ -114,18 +114,20 @@
   .nav-menu {
     display: flex;
     justify-content: space-between;
+    gap: 45px;
     align-items: center;
     width: 100%;
     background: white;
     font-size: 14px;
     font-weight: 400;
     transition: ease-in-out .3s;
+
   }
 
   .nav-menu .menu-item {
     cursor: pointer;
     color: #333;
-    padding-right: 20px;
+    padding-right: 5px;
     transition: color 0.2s ease-in-out;
     transition: 0.2s ease-in-out;   
   }
@@ -151,7 +153,7 @@
     background-color: #F5F5F5ff;
     margin: 0;
     padding: 12px 15px 10px 12px;
-    transition: ease-in-out 0.2s;
+    animation: fadeIn .4s ease-in forwards;
   }
 
   .slide-menu {
@@ -181,6 +183,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 100px;
   }
 
@@ -214,7 +217,7 @@
   }
 
 .categories-ul, .container-image{
-    padding-top: 20px;
+    padding-top: 15px;
     padding-inline: 40px;
 }
 
@@ -250,3 +253,41 @@
   filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(6289%) hue-rotate(217deg) brightness(95%) contrast(103%);
 }
 
+
+.categories {
+  display: none;
+}
+.categories.active {
+  display: block;
+}
+
+.container-categories .categories-ul li:hover {
+  color: #0056ff;
+  font-weight: 700;
+  
+}
+.container-categories .categories-ul li {
+  margin-left: 25px;
+  color: #656565;
+  font-weight: 400;
+  
+}
+
+
+.container-categories {
+  animation: fadeIn .7s ease-in forwards;
+}
+
+
+.fade-in {
+  animation: fadeIn 1s ease-in forwards;
+}
+
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
