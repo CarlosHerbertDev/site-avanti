@@ -126,10 +126,10 @@ megaMenu.addEventListener("mouseleave", (event) => {
 menuItem.forEach((item) => { 
   
   if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
+  const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
   
   item.addEventListener("mouseenter", () => {
 
-    const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
     console.log(headerCategories);
     
 
@@ -150,12 +150,7 @@ menuItem.forEach((item) => {
   });
 
   item.addEventListener("mouseleave", () => {
-    console.log("oi");
-    
-    const headerCategories = document.querySelectorAll(".header-categories");
-    headerCategories.forEach((header) => {
-      header.innerHTML = "";
-    })
+    headerCategories.innerHTML = "";
   });
 
 })
