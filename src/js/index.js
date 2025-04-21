@@ -6,6 +6,9 @@ const categories = document.querySelectorAll(".categories");
 const menuItem = document.querySelectorAll(".menu-item");
 const menuCategories = document.querySelector("#menu-categories");
 const headerCategories = document.querySelectorAll(".header-categories");
+const menuItems = document.querySelectorAll(".menu-item:not(#todas-categorias)");
+
+const teste2 = document.querySelector(".nav-menu");
 const departamentos = [
   "Departamento", "Departamento", "Departamento", "Departamento",
   "Departamento", "Departamento", "Departamento", "Departamento",
@@ -20,8 +23,9 @@ function mostrarMenu() {
   megaMenu.classList.remove("hidden");
   ulMegaMenu.classList.remove("hidden");
   megaMenuContent.classList.remove("hidden");
+  menuItem.forEach((item) => item.classList.remove("active"));
+  headerCategories.forEach((item) => item.classList.remove("active"));
 
-  // Ativar visual no botão
   todasCategorias.classList.add("active");
 
   if (ulMegaMenu.children.length === 0) {
@@ -37,12 +41,13 @@ function mostrarMenu() {
     const itemMegaMenu = document.querySelectorAll(".mega-menu-item");
 
     itemMegaMenu.forEach((item) => {
+
       const arrow = item.querySelector("#arrow");
       const departamento = item.querySelector("p").innerText;
       const category = document.querySelector(`[data-dept="${departamento}"]`)
 
       item.addEventListener("mouseenter", () => {
- 
+
         itemMegaMenu.forEach((i) => i.classList.remove("active"));
         item.classList.add("active");
         categories.forEach((c) => c.classList.remove("active"));
@@ -51,10 +56,9 @@ function mostrarMenu() {
       
         if (arrow) arrow.src = "./src/assets/arrow-hover.png";
         
-        
+    
         if (category.dataset.dept === 'Departamento') {
           
-          console.log('ai');
           
         category.innerHTML = `
           <div class="container-categories">
@@ -85,7 +89,7 @@ function mostrarMenu() {
   }
 }
 
-function esconderMenu() {
+function esconderMenu(timer) {
   hideTimeout = setTimeout(() => {
     megaMenu.classList.add("hidden");
     ulMegaMenu.classList.add("hidden");
@@ -98,24 +102,19 @@ function esconderMenu() {
       const arrow = item.querySelector("img");
       if (arrow) arrow.src = "./src/assets/arrow.png";
       categories.forEach((c) => {
-        c.innerHTML = ""
         c.classList.remove("active");
+        c.innerHTML = ""
       })
     });
-
-  }, 200);
+  }, timer);
 }
-
-
-const containerCategories = document.querySelectorAll(".container-categories");
-
 
 todasCategorias.addEventListener("mouseenter", mostrarMenu);
 todasCategorias.addEventListener("mouseleave", (event) => {
   const related = event.relatedTarget;
 
   if (!megaMenu.contains(related)) {
-    esconderMenu();
+    esconderMenu(200);
   }
 });
 
@@ -124,88 +123,185 @@ megaMenu.addEventListener("mouseleave", (event) => {
   const related = event.relatedTarget;
 
   if (!megaMenu.contains(related) && related !== todasCategorias) {
-    esconderMenu();
+    esconderMenu(200);
   }
 });
 
 
-menuItem.forEach((item) => { 
+
+  // menuItem.forEach((item) => {
+  //   if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
+  //   item.addEventListener("mouseenter", () => {
+  //     clearTimeout(hideTimeout);
+  //     esconderMenu(0);
+  //     const category = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
+  //     item.classList.add("active");
+  //     category.classList.add("active");
+
+  //     if (category.dataset.dept === 'Departamento') {
+  //       category.innerHTML = `
+  //         <div class="container-categories-menu">
+  //               <h4>${item.innerHTML}</h4>
+  //                 <ul>
+  //                     <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+  //                     <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+  //                     <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+  //                     <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+  //                     <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+  //                     <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+  //                     <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+  //                     <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+  //                 </ul>
+  //         </div>           
+  //         `
+  //     }
+  //   })
+
+  //   item.addEventListener("mouseleave", () => {
+  //     if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
+  //     const category = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
+  //     hideTimeout = setTimeout(() => {
+  //     item.classList.remove("active");
+  //     category.classList.remove("active");
+  //   }, 200)
+
+  //   })
+  // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+menuItem.forEach((item) => {
   if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
-  const category = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
-  
-  item.addEventListener("mouseenter", () => {
-
-    menuItem.forEach((i) => i.classList.remove("active"));
-    item.classList.add("active");
-    headerCategories.forEach((c) => c.classList.remove("active"));
-    category.classList.add("active");
-            
+  item.addEventListener("mouseenter", () => {   
+    esconderMenu(0);
     menuCategories.classList.remove("hidden");
+    const category = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);  
+    menuItem.forEach((i) => i.classList.remove("active"));
+        item.classList.add("active");
+        headerCategories.forEach((c) => c.classList.remove("active"));
+        category.classList.add("active");
+        
+        if (category.dataset.dept === 'Departamento') {
+          
+          category.innerHTML =`
+          <div class="container-categories-menu">
+          <h4>${item.innerHTML}</h4>
+          <ul>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          </ul>
+          </div>
+          `
+        } 
+        
+        if (category.dataset.dept === 'teste') {
+          
+          category.innerHTML =`
+          <div class="container-categories-menu">
+          <h4>${item.innerHTML}</h4>
+          <ul>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+          </ul>
+          </div>
+          
+        ` 
+      }
+  });      
+  
+  item.addEventListener('mouseleave', () => {
+    const category = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
 
+    // hideTimeout = setTimeout(() => {
 
-    category.innerHTML +=`
-      <h4>Departamento</h4>
-      <ul>
-      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-      <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-      </ul>
-      
-      `
+  if (item.classList.contains('categorie-active')) {
+    item.classList.remove("active");
+    category.classList.remove("active");
+  }
+    // })
+  })
+})
+          
+  
+// teste2.addEventListener('mouseleave', () => {
+//   menuItems.forEach((item) => {
+//     const category = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);  
+//     hideTimeout = setTimeout(() => {
+//     item.classList.remove('active')
+//     category.classList.remove('active')
+//     category.innerHTML = '' 
+//     }, 2000)
+//     })
+// })
 
-      });
-      
-      
-      
-      item.addEventListener("mouseleave", () => {
-      
-        hideTimeout = setTimeout(() => {
-        menuCategories.classList.add("hidden");
-        headerCategories.innerHTML = "";
-        item.classList.remove("active");
-        }
-        , 200)
-      });
-
+menuCategories.addEventListener("mouseenter", () =>  {
+  clearTimeout(hideTimeout)
+  menuItems.forEach((item) => {
+    item.classList.add('categorie-active')
+  })
 })
 
-function teste() {
-// menuCategories.classList.remove("hidden")
-clearTimeout(hideTimeout)
-}
-
-menuCategories.addEventListener("mouseenter", () => {
-  teste()
-})
 
 
 menuCategories.addEventListener("mouseleave", () => {
-  // hideTimeout = setTimeout(() => {
-  //   headerCategories.forEach((item) => {
-  //     item.innerHTML = ""
-  //   })
-  //   menuCategories.classList.add("hidden")
-  //   menuItem.forEach((item) => {
-  //     item.classList.remove("active")
-  //   })
-  // }, 200)
 
-  menuItem.forEach((item) => {
-    hideTimeout = setTimeout(() => {
 
-    item.classList.remove("active")
-    if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
-    const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
-    headerCategories.innerHTML = ""
-    menuCategories.classList.add("hidden")
-  }, 200)
-})
-});
+      menuCategories.classList.add("hidden");
+      menuItems.forEach((item) => {
+        item.classList.remove("active");
+        item.classList.remove('categorie-active')
+
+      })
+      headerCategories.forEach((item) => {
+        item.innerHTML = ""
+        item.classList.remove("active");
+      })
+  }
+)
 
 
 
@@ -222,109 +318,3 @@ menuCategories.addEventListener("mouseleave", () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// menuItem.forEach((item) => { 
-//     if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
-//     const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
-    
-//     item.addEventListener("mouseenter", () => {
-
-//       item.classList.add("active");
-
-//         menuCategories.classList.remove("hidden");
-              
-
-//       headerCategories.innerHTML +=`
-//         <h4>Departamento</h4>
-//         <ul>
-//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-//         <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-//         </ul>
-        
-//         `
-
-//         });
-        
-        
-        
-//         item.addEventListener("mouseleave", () => {
-        
-//           hideTimeout = setTimeout(() => {
-//           menuCategories.classList.add("hidden");
-//           headerCategories.innerHTML = "";
-//           item.classList.remove("active");
-//           }
-//           , 200)
-//         });
-
-//   })
-
-// function teste() {
-//   // menuCategories.classList.remove("hidden")
-//   clearTimeout(hideTimeout)
-// }
-
-//   menuCategories.addEventListener("mouseenter", () => {
-//     teste()
-//   })
-
-
-//   menuCategories.addEventListener("mouseleave", () => {
-//     // hideTimeout = setTimeout(() => {
-//     //   headerCategories.forEach((item) => {
-//     //     item.innerHTML = ""
-//     //   })
-//     //   menuCategories.classList.add("hidden")
-//     //   menuItem.forEach((item) => {
-//     //     item.classList.remove("active")
-//     //   })
-//     // }, 200)
-
-//     menuItem.forEach((item) => {
-//       hideTimeout = setTimeout(() => {
-
-//       item.classList.remove("active")
-//       if (item.innerHTML === "<strong>☰ Todas as Categorias</strong>") return;
-//       const headerCategories = document.querySelector(`.header-categories[data-dept="${item.innerText}"]`);
-//       headerCategories.innerHTML = ""
-//       menuCategories.classList.add("hidden")
-//     }, 200)
-//   })
-//   });

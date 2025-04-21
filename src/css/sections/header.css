@@ -154,7 +154,7 @@
     background-color: #F5F5F5ff;
     margin: 0;
     padding: 12px 15px 10px 12px;
-    animation: fadeIn .4s ease-in forwards;
+    animation: fadeIn .2s ease-in forwards;
   }
 
   .slide-menu {
@@ -193,11 +193,6 @@
     width: 5px;
     height: 9px;
     margin-right: 20px;
-  }
-
-  .mega-menu-item:hover {
-    color: #0056ff;
-    font-weight: 700;
   }
 
   .categories {
@@ -255,10 +250,10 @@
 }
 
 
-.categories {
+.categories, .header-categories {
   display: none;
 }
-.categories.active {
+.categories.active, .header-categories.active {
   display: block;
 }
 
@@ -276,8 +271,20 @@
 
 
 
-.container-categories, .header-categories {
-  animation: fadeIn .7s ease-in forwards;
+.categories {
+  animation: fadeIn .2s ease-in forwards;
+}
+
+.header-categories {
+  animation: fadeIn .4s ease-in forwards;
+
+}
+
+
+
+.teste {
+  position: absolute;
+  left: 0;
 }
 
 
@@ -293,3 +300,8 @@
     opacity: 1;
   }
 } */
+
+
+
+
+
