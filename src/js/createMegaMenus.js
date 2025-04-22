@@ -129,9 +129,9 @@ export default function createMegaMenus() {
         
         if (category.dataset.dept === "Departamento") {
           category.innerHTML = `
-          <h4 class="title-category">${item.innerHTML}</h4>
+          <h4 class="title-departament">${item.innerHTML}</h4>
           <div class="container-categories">
-          <ul class="categories-ul">
+          <ul class="categories-ul-header">
           <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
           <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
           <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
