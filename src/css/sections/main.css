@@ -1,0 +1,12 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(231, 231, 234, 1);
+}
+
+.container-images-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

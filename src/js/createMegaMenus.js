@@ -1,3 +1,6 @@
+
+
+
 export default function createMegaMenus() {
   const megaMenu = document.querySelector("#mega-menu");
   const ulMegaMenu = document.querySelector(".slide-menu");
@@ -10,6 +13,8 @@ export default function createMegaMenus() {
   const menuItems = document.querySelectorAll(
     ".menu-item:not(#todas-categorias)"
   );
+
+ 
   const navegation = document.querySelector(".nav-menu");
   const departamentos = [
     "Departamento",
@@ -79,7 +84,13 @@ export default function createMegaMenus() {
               <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
             </ul>
             <div class="container-image">
-              <a>Imagem</a>
+              <img src="./src/assets/banner-avanti.png">
+              <p>Confira os Produtos <span>Que acabaram De chegar</span></p>
+              <button>
+                <a href="#">
+                  Ver todos
+                </a> 
+              </button>
             </div>
           </div>
         `;
@@ -130,21 +141,27 @@ export default function createMegaMenus() {
         if (category.dataset.dept === "Departamento") {
           category.innerHTML = `
           <h4 class="title-departament">${item.innerHTML}</h4>
-          <div class="container-categories">
-          <ul class="categories-ul-header">
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-          <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-            <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-            <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
-            </ul>
-            <div class="container-image">
-            <a>Imagem</a>
-            </div>
-            </div>
+            <div class="container-categories">
+                <ul class="categories-ul-header">
+                    <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+                    <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+                    <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+                    <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+                    <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+                    <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+                    <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+                    <li><a>Categoria</a> <a>Categoria</a> <a>Categoria</a></li>
+                </ul>
+                <div class="container-image-header">
+                    <img src="./src/assets/banner-avanti.png">
+                    <p>Confira os Produtos <span>Que acabaram De chegar</span></p>
+                    <button>
+                      <a href="#">
+                        Ver todos
+                      </a> 
+                    </button>
+                </div>
+              </div>
             `;
           }
         }
