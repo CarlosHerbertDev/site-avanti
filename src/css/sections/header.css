@@ -204,9 +204,8 @@
   display: flex;
   align-items: center;
   width: 100%;
-  border-radius: 8px;
   box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin-top: 18px;
   margin-inline: 10px;
   transition: ease-in-out 0.2s;
   max-height: 330px;
@@ -413,7 +412,7 @@ transform: translatey(-30px);
 
 .header-categories {
   width: 100%;
-  animation: fadeIn 0.4s ease-in forwards;
+  animation: fadeIn 0.2s ease-in forwards;
 }
 .container-categories-menu {
   padding: 20px;
