@@ -205,7 +205,7 @@
   align-items: center;
   width: 100%;
   box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.1);
-  margin-top: 18px;
+  margin-top: 15px;
   margin-inline: 10px;
   transition: ease-in-out 0.2s;
   max-height: 330px;
@@ -356,8 +356,10 @@ transform: translatey(-30px);
 
 .container-image button,
 .container-image-header button {
-  bottom: 40px;
-  padding: 15px 20px;
+  bottom: 45px;
+  padding: 10px 10px;
+  width: 116px;
+  font-family: 12px;
   border-radius: 10px;
   background: none;
   text-transform: uppercase;
