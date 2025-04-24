@@ -4,8 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
     margin-top: 70px;
+    margin-bottom: 15px;
 }
 
 .carousel-container {

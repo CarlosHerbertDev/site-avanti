@@ -1,0 +1,81 @@
+.segundo-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 40px 0px;
+    background-color: #DEDEDE;
+}
+
+.container-segundo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+    max-width: 1177px;
+    width: 100%;
+    gap: 60px;
+}   
+
+.container-segundo-banner .container-segunda-image  {
+}
+.container-segundo-banner .container-segunda-image img {
+    max-height: 650px;
+    max-width: 652px;
+}
+
+.container-segundo-banner .container-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+    width: 476px;
+    margin-top: 80px;
+    gap: 40px;
+}
+
+.container-segundo-banner .container-text h1 {
+    color: #4F4F4F;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.container-segundo-banner .container-text ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.container-segundo-banner .container-text ul li {
+    display: flex;
+    gap: 25px;
+}
+
+.container-segundo-banner .container-text ul li p {
+    max-width: 330px;
+    letter-spacing: 5%;
+    line-height: 20px;
+    font-size: 18px;
+    color: #4F4F4F;
+    font-weight: 400;
+}
+
+.container-segundo-banner .container-text .container-image-map {
+    background-color: #0056ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+}
+
+.container-segundo-banner .container-text .container-image-map img {
+    height: 45px;
+    width: 45px;
+}
