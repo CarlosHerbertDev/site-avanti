@@ -20,7 +20,7 @@
   font-weight: 400;
 }
 
-.container-header {
+.header-navegation {
   max-width: 1290px;
   display: flex;
   justify-content: center;
@@ -61,8 +61,16 @@
   flex: 1;
 }
 
-.search-container {
+.search {
   width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.search-container {
   max-width: 600px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -70,6 +78,32 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
+  z-index: 2;
+  background-color: #fff;
+}
+
+.search-container .lupa {
+  position: absolute;
+  right: 0;
+  margin-right: 15px;
+  cursor: pointer;
+
+}
+
+.search .search-result {
+  display: none;
+  position: absolute;
+  width: 100%;
+  max-width: 600px;
+  z-index: 1;
+  top: 42px;
+  left: 65px;
+  background-color: #fff;
+  padding: 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.1);  
 }
 
 .search-container input {
@@ -90,7 +124,7 @@
   outline: none;
 }
 
-.search-container::after {
+/* .search-container::after {
   content: "";
   background-image: url(../../assets/icons8-pesquisar-25.png);
   width: 25px;
@@ -102,7 +136,7 @@
   transform: translateY(-50%);
   font-size: 16px;
   color: #888;
-}
+} */
 
 .icons {
   display: flex;
@@ -165,6 +199,7 @@
   font-size: 14px;
   font-weight: 400;
   transition: ease-in-out 0.3s;
+  z-index: 0;
 }
 
 .nav-menu .menu-item {

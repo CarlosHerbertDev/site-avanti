@@ -1,7 +1,5 @@
 .section-contato {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    margin-top: 70px;
 } 
 
 .container-contato {
@@ -32,7 +30,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 60px;
     gap: 20px;
 }
 

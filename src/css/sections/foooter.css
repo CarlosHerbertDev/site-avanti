@@ -1,0 +1,127 @@
+.footer {
+    margin-top: 40px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 60px 0px;
+    margin-bottom: 40px;
+    background-color: rgba(245, 245, 245, 1);
+}
+
+
+.footer-navegation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 130px;
+}
+
+.footer-container .redes-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-container .redes-logo img {
+    width: 152px;
+    height: 27px;
+}
+
+.footer-container .redes-logo .redes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.footer-container .redes-logo .redes li {
+    font-size: 25px;
+}
+.footer-container .redes-logo .redes li:nth-child(3) {
+    font-size: 30px;    
+    color: #005cff;
+}   
+
+.footer-container .redes-logo .redes li i {
+    cursor: pointer;
+}
+
+.mais-infos {
+    display: flex;
+    gap: 120px;
+}
+
+.mais-infos .institucional h4,
+.mais-infos .central-ajuda h4,
+.mais-infos .atendimento h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.mais-infos .institucional h5,
+.mais-infos .central-ajuda h5 {
+    cursor: pointer;
+}
+
+.mais-infos .institucional h5,
+.mais-infos .central-ajuda h5,
+.mais-infos .atendimento h5 {
+    color: #656565;
+    font-weight: 400;
+    font-size: 14px;
+    max-width: 245px;
+    line-height: 25px;
+}
+
+.mais-infos .atendimento span {
+    color: #000;
+    font-weight: 700;
+}
+
+
+.icons-pagamentos {
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+}
+.icons-pagamentos  {
+    margin-top: 40px;
+    display: flex;
+    margin-right: 50px;
+}
+
+.icons-pagamentos img {
+    width: 545px;   
+    height: 24px;
+}
+
+.end-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.end-footer p {
+    text-align: center;
+    font-size: 12px;
+    max-width: 1074px;
+}
+
+.end-footer img {
+    width: 296px;
+}

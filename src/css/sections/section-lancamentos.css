@@ -45,9 +45,9 @@
   .card {
     background: #fff;
     border-radius: 12px;
-    padding: 16px 6px 16px;
+    padding-inline: 8px;
     width: 230px;
-    height: 410PX;
+    height: 378PX;
     flex-shrink: 0;
     border: 1px solid rgba(221, 221, 221, 1);
     position: relative;
