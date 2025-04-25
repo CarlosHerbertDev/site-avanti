@@ -3,6 +3,8 @@
     align-items: center;
     justify-content: center;
     background-color: rgba(231, 231, 234, 1);
+    width: 100vw;
+    height: 660px;
 }
 
 .container-images-main {
