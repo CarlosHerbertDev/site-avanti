@@ -2,13 +2,43 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(231, 231, 234, 1);
+    background-color: #e8e9eb;
     width: 100vw;
-    height: 660px;
+    height: 510px;
 }
 
 .container-images-main {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+.container-images-main img {
+    background-color: #E7E7EA;
+}
+
+.container-main-text {
+    margin-right: 80px;
+}
+
+.container-main-text h1 {
+    font-size: 100px;
+    font-weight: 300;
+}
+
+.container-main-text span {
+    font-weight: 700;
+}
+
+.container-main-text h2 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #0056ff;
+    letter-spacing: 7px;
+}
+
+.container-main-text h3 {
+    font-size: 60px;
+    color: #0056ff;
 }
